@@ -10,10 +10,17 @@ program animales {
 	 * agregamos personajes
 	 */ 
 	var animalActual = new Vaca()
+	
+	game.addVisual(animalActual)
 
 	/*
 	 * configuraciones de teclado
 	 */
+	keyboard.c().onPressDo({ animalActual.comer(12) })
+	keyboard.p().onPressDo({ game.say(animalActual, animalActual.peso().toString()) })
+	keyboard.t().onPressDo({ animalActual.beber() })
+	keyboard.r().onPressDo({if (animalActual.tieneSed()) {
+		game.say(animalActual, "Tengo sed")} else {game.say(animalActual, "No tengo sed")} })
 	
 	/*
 	 * arrancamos el juego
